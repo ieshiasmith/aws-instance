@@ -9,7 +9,7 @@ resource "aws_iam_policy" "generic_instance" {
       {
         Action   = ["ec2:DescribeInstances"]
         Effect   = "Allow"
-        Sid      = "generic_instance"
+        Sid      = "generic"
         Resource = "*"
       }
     ],

@@ -1,5 +1,5 @@
 resource "aws_security_group" "ssh_sg" {
-  name        = "ssh_sg"
+  name        = "aws_instance_ssh_sg"
   description = "Allow ssh traffic"
   vpc_id      = local.vpc_id
 
