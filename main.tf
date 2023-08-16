@@ -34,7 +34,7 @@ resource "aws_instance" "hashistack" {
   monitoring                  = true
   vpc_security_group_ids      = [local.ssh_sg]
   subnet_id                   = local.public_subnet_0
-  iam_instance_profile        = aws_iam_instance_profile.hashistack.name
+  iam_instance_profile        = aws_iam_instance_profile.generic_instance.name
   associate_public_ip_address = true
   tags = {
     Name   = "hashistack-${count.index}",

@@ -18,7 +18,7 @@ resource "aws_iam_policy" "generic_instance" {
 
 
 # Create Role
-resource "aws_iam_role" "sts_assume" {
+resource "aws_iam_role" "generic_instance" {
   name = "sts_assume"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
