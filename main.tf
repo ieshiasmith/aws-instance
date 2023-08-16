@@ -26,7 +26,7 @@ locals {
   ssh_sg             = aws_security_group.ssh_sg.id
 }
 
-resource "aws_instance" "hashistack" {
+resource "aws_instance" "generic_instance" {
   count                       = 1
   ami                         = local.ami_id
   instance_type               = "t3.medium"
