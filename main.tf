@@ -37,10 +37,7 @@ resource "aws_instance" "hashistack" {
   iam_instance_profile        = aws_iam_instance_profile.generic_instance.name
   associate_public_ip_address = true
   tags = {
-    Name   = "hashistack-${count.index}",
-    nomad  = "server",
-    consul = "server",
-    vault  = "server",
+    Name = "aws-instance-${count.index}",
   }
 
   connection {
