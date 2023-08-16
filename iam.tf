@@ -16,24 +16,6 @@ resource "aws_iam_policy" "hashistack" {
   })
 }
 
-resource "aws_iam_policy" "s3_hashistack" {
-  name        = "s3_hashistack"
-  path        = "/"
-  description = "Policy for writing configurations to s3"
-  policy = jsonencode({
-    Version = "2012-10-17"
-
-    Statement = [
-      {
-        Action   = ["s3:PutObject", "s3:GetObject"]
-        Effect   = "Allow"
-        Sid      = "S3Hashistack"
-        Resource = module.s3_bucket.s3_bucket_arn
-      }
-    ]
-  })
-
-}
 
 # Create Role
 resource "aws_iam_role" "hashistack" {
@@ -58,12 +40,6 @@ resource "aws_iam_policy_attachment" "hashistack" {
   name       = "hashistack"
   roles      = [aws_iam_role.hashistack.name]
   policy_arn = aws_iam_policy.hashistack.arn
-}
-
-resource "aws_iam_policy_attachment" "s3_hashistack" {
-  name       = "s3_hashistack"
-  roles      = [aws_iam_role.hashistack.name]
-  policy_arn = aws_iam_policy.s3_hashistack.arn
 }
 
 resource "aws_iam_instance_profile" "hashistack" {
