@@ -39,18 +39,4 @@ resource "aws_instance" "generic_instance" {
   tags = {
     Name = "aws-instance-${count.index}",
   }
-
-  connection {
-    type        = "ssh"
-    user        = "ubuntu"
-    private_key = local.management_privkey
-    host        = self.public_ip
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo apt-get update",
-      "sudo apt install -y unzip jq curl wget ",
-    ]
-  }
 }
