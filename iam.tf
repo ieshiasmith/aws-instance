@@ -1,5 +1,5 @@
-resource "aws_iam_policy" "hashistack" {
-  name        = "hashistack"
+resource "aws_iam_policy" "generic_instance" {
+  name        = "describe-instances"
   path        = "/"
   description = "Policy to allow AWS auto join HashiStack servers in cluster"
 
@@ -9,7 +9,7 @@ resource "aws_iam_policy" "hashistack" {
       {
         Action   = ["ec2:DescribeInstances"]
         Effect   = "Allow"
-        Sid      = "hashistack"
+        Sid      = "generic_instance"
         Resource = "*"
       }
     ],
@@ -18,8 +18,8 @@ resource "aws_iam_policy" "hashistack" {
 
 
 # Create Role
-resource "aws_iam_role" "hashistack" {
-  name = "hashistack"
+resource "aws_iam_role" "sts_assume" {
+  name = "sts_assume"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -36,13 +36,13 @@ resource "aws_iam_role" "hashistack" {
 }
 
 # Attach Policy to Role
-resource "aws_iam_policy_attachment" "hashistack" {
-  name       = "hashistack"
-  roles      = [aws_iam_role.hashistack.name]
-  policy_arn = aws_iam_policy.hashistack.arn
+resource "aws_iam_policy_attachment" "generic_instance" {
+  name       = "generic_instance"
+  roles      = [aws_iam_role.generic_instance.name]
+  policy_arn = aws_iam_policy.generic_instance.arn
 }
 
-resource "aws_iam_instance_profile" "hashistack" {
-  name = "hashistack"
-  role = aws_iam_role.hashistack.name
+resource "aws_iam_instance_profile" "generic_instance" {
+  name = "generic_instance"
+  role = aws_iam_role.generic_instance.name
 }
