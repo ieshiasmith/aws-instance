@@ -39,6 +39,10 @@ resource "aws_instance" "generic_instance" {
   tags = {
     Name = "aws-instance-${count.index}",
   }
+  root_block_device {
+    volume_size = 100
+  }
+
   user_data = <<EOF
 #!/bin/bash
 exec > /tmp/setup.log 2>&1
