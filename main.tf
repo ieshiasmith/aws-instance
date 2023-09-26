@@ -41,6 +41,7 @@ resource "aws_instance" "generic_instance" {
   }
   user_data = <<EOF
 #!/bin/bash
+exec > /tmp/setup.log 2>&1
 
 ### Install Docker #############################################################
 sudo apt update
