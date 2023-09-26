@@ -16,7 +16,6 @@ resource "aws_iam_policy" "generic_instance" {
   })
 }
 
-
 # Create Role
 resource "aws_iam_role" "generic_instance" {
   name = "sts_assume"
