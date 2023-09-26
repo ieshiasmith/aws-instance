@@ -29,7 +29,7 @@ locals {
 resource "aws_instance" "generic_instance" {
   count                       = 1
   ami                         = local.ami_id
-  instance_type               = "t3.medium"
+  instance_type               = "m5.xlarge"
   key_name                    = local.management_key
   monitoring                  = true
   vpc_security_group_ids      = [local.ssh_sg]
