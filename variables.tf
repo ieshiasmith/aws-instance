@@ -17,3 +17,8 @@ variable "cidr_block" {
 variable "my_ip" {
   default = "64.79.57.24/32"
 }
+
+variable "instance_type" {
+  description = "Description of the instance type"
+  default     = "m5.medium"
+}
