@@ -20,10 +20,11 @@ variable "my_ip" {
 
 variable "instance_type" {
   description = "Description of the instance type"
-  default     = "m5.medium"
+  default     = "t3.medium"
 }
 
 variable "volume_size" {
   description = "Volume Size in GB"
-  default     = "100"
+  type        = number
+  default     = 100
 }
