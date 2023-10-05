@@ -22,3 +22,8 @@ variable "instance_type" {
   description = "Description of the instance type"
   default     = "m5.medium"
 }
+
+variable "volume_size" {
+  description = "Volume Size in GB"
+  default     = "100"
+}

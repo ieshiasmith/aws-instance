@@ -24,6 +24,7 @@ locals {
   management_privkey = base64decode(var.management_privkey)
   ssh_sg             = aws_security_group.ssh_sg.id
   instance_type      = var.instance_type
+  volume_size        = var.volume_size
 }
 
 resource "aws_instance" "generic_instance" {
@@ -40,7 +41,7 @@ resource "aws_instance" "generic_instance" {
     Name = "aws-instance-${count.index}",
   }
   root_block_device {
-    volume_size = 100
+    volume_size = local.volume_size
   }
 
   user_data = <<EOF
