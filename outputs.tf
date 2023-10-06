@@ -11,6 +11,10 @@ output "private_ips" {
   value = aws_instance.generic_instance.*.private_ip
 }
 
+output "my_ip" {
+  value = local.my_ip
+}
+
 output "instance_ids" {
   value = aws_instance.generic_instance.*.id
 }
