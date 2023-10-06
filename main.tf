@@ -25,6 +25,7 @@ locals {
   ssh_sg             = aws_security_group.ssh_sg.id
   instance_type      = var.instance_type
   volume_size        = var.volume_size
+  ubuntu_token       = var.ubuntu_token
 }
 
 resource "aws_instance" "generic_instance" {
@@ -50,11 +51,15 @@ exec > /tmp/setup.log 2>&1
 
 ### Install Docker #############################################################
 sudo apt update
-sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-apt-cache policy docker-ce
-sudo apt install docker-ce -y
+sudo apt-get install ubuntu-advantage-tools
+sudo pro attach ${local.ubuntu_token}
+sudo apt update && sudo apt upgrade -y
+#sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+#apt-cache policy docker-ce
+#sudo apt install docker-ce -y
+#sudo apt update
 EOF
 
 }
