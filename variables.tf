@@ -15,7 +15,7 @@ variable "cidr_block" {
 }
 
 variable "my_ip" {
-  default = "64.79.57.24/32"
+  default = "x.x.x.x/32"
 }
 
 variable "instance_type" {
