@@ -14,18 +14,17 @@ data "aws_ami" "ubuntu_focal" {
 }
 
 locals {
-  public_subnet_0    = element(data.terraform_remote_state.vpc.outputs.public_subnet_ids, 0)
-  public_subnets     = data.terraform_remote_state.vpc.outputs.*.public_subnet_ids
-  vpc_id             = data.terraform_remote_state.vpc.outputs.vpc_id
-  my_ip              = var.my_ip
-  cidr_block         = var.cidr_block
-  ami_id             = data.aws_ami.ubuntu_focal.image_id
-  management_key     = "management"
-  management_privkey = base64decode(var.management_privkey)
-  ssh_sg             = aws_security_group.ssh_sg.id
-  instance_type      = var.instance_type
-  volume_size        = var.volume_size
-  ubuntu_token       = var.ubuntu_token
+  public_subnet_0 = element(data.terraform_remote_state.vpc.outputs.public_subnet_ids, 0)
+  public_subnets  = data.terraform_remote_state.vpc.outputs.*.public_subnet_ids
+  vpc_id          = data.terraform_remote_state.vpc.outputs.vpc_id
+  my_ip           = var.my_ip
+  cidr_block      = var.cidr_block
+  ami_id          = data.aws_ami.ubuntu_focal.image_id
+  management_key  = "management"
+  ssh_sg          = aws_security_group.ssh_sg.id
+  instance_type   = var.instance_type
+  volume_size     = var.volume_size
+  ubuntu_token    = var.ubuntu_token
 }
 
 resource "aws_instance" "generic_instance" {

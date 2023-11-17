@@ -4,12 +4,6 @@ variable "region" {
   default     = "us-east-2"
 }
 
-variable "management_privkey" {
-  type        = string
-  description = "SSH Private Key"
-  sensitive   = true
-}
-
 variable "cidr_block" {
   default = "10.42.0.0/16"
 }
