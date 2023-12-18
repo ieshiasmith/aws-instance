@@ -1,7 +1,7 @@
 terraform {
-  required_version = "~> 1.5.2"
+  required_version = "~> 1.6.6"
   backend "remote" {
-    organization = "demo-land"
+    organization = "HashIeshia"
     workspaces {
       name = "aws-instance"
     }
