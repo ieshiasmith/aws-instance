@@ -20,7 +20,6 @@ locals {
   vpc_id          = data.terraform_remote_state.vpc.outputs.vpc_id
   my_ip           = var.my_ip
   cidr_block      = var.cidr_block
-  ami_id          = local.ami_id
   management_key  = "management"
   ssh_sg          = aws_security_group.ssh_sg.id
   instance_type   = var.instance_type
