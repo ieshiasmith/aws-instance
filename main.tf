@@ -24,7 +24,7 @@ locals {
   ssh_sg          = aws_security_group.ssh_sg.id
   instance_type   = var.instance_type
   volume_size     = var.volume_size
-  ubuntu_token    = var.ubuntu_token
+#  ubuntu_token    = var.ubuntu_token
 }
 
 resource "aws_instance" "generic_instance" {
