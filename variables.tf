@@ -23,7 +23,7 @@ variable "volume_size" {
   default     = 100
 }
 
-variable "ubuntu_token" {
-  description = "Token from the Ubuntu pro dashboard "
-  type        = string
-}
+# variable "ubuntu_token" {
+#   description = "Token from the Ubuntu pro dashboard "
+#   type        = string
+# }
