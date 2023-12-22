@@ -8,15 +8,15 @@ resource "aws_security_group" "ssh_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.cidr_block, var.my_ip, "0.0.0.0/0"]
+    cidr_blocks = [var.cidr_block, var.my_ip]
   }
 
   ingress {
-    description = "minikube"
-    from_port   = 8000
-    to_port     = 8000
+    description = "vault"
+    from_port   = 8200
+    to_port     = 8200
     protocol    = "tcp"
-    cidr_blocks = [var.cidr_block, var.my_ip, "0.0.0.0/0"]
+    cidr_blocks = [var.cidr_block, var.my_ip]
   }
 
   egress {

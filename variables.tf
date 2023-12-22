@@ -23,7 +23,15 @@ variable "volume_size" {
   default     = 50
 }
 
-# variable "ubuntu_token" {
-#   description = "Token from the Ubuntu pro dashboard "
-#   type        = string
-# }
+variable "hashi_tool" {
+  description = "HashiCorp tools to install"
+  type        = string
+  default     = "none"
+}
+
+variable "vault_license" {
+  description = "Vault License"
+  type        = string
+  default     = "none"
+  sensitive   = true
+}
