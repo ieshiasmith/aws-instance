@@ -20,7 +20,7 @@ variable "instance_type" {
 variable "volume_size" {
   description = "Volume Size in GB"
   type        = number
-  default     = 100
+  default     = 50
 }
 
 # variable "ubuntu_token" {
